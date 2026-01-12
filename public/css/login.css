@@ -1,0 +1,11 @@
+.login-wrapper{
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 2rem;
+    border-radius: 10px;
+
+    button:hover{
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
