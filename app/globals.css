@@ -1,41 +1,104 @@
+@import "@radix-ui/themes/styles.css";
 @import "tailwindcss";
 
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --background: #121212;
+  --foreground: #ededed;
+  --carbon-black-dark: #1A1A1A;
+
+
+  /* Dark Mode Accent Colors */
+  --sky-blue: #02B3F1;
+  --pure-red: #FE0109;
+  --bright-purple: #F56ADE;
+  --lime-green:#43A200;
+
+
+  /* Fonts */
+  --font-hanken-grotesk: 'Hanken Grotesk', sans-serif;
+  --font-zalando-sans-expanded: 'Zalando Sans Expanded', sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-primary: var(--font-hanken-grotesk);
+  --font-secondary: var(--font-zalando-sans-expanded);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #121212;
     --foreground: #ededed;
+    --carbon-black: #1A1A1A;
+    --sky-blue: #02B3F1;
+    --pure-red: #FE0109;
+    --bright-purple: #F56ADE;
+    --lime-green:#43A200;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ededed;
+    --foreground: #121212;
+    --carbon-black: #3a3a3a;
+    --sky-blue: #0093C7;
+    --pure-red: #FE0109;
+    --bright-purple: #9C0182;
+    --lime-green:#43A200;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Google Sans Flex', 'Hanken Grotesk', sans-serif;
+  font-family:var(--font-primary);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family:var(--font-secondary);
 }
 
-.google-sans-flex-bold {
-  font-family: "Google Sans Flex", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700; 
-  font-size: 3rem;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "wdth" 150,
-    "GRAD" 0,
-    "ROND" 0;
+h1{
+  font-size: 2.5em;
+  font-weight: 900;
+  color: var(--sky-blue);
+}
+h2{
+  font-size: 2em;
+  font-weight: 900;
+}
+h3{
+  font-size: 1.8em;
+  font-weight: 900;
+}
+h4{
+  font-size: 1.6em;
+  font-weight: 900;
+}
+h5{
+  font-size: 1.4em;
+  font-weight: 900;
+}
+h6{
+  font-size: 1em;
+  font-weight: 900;
+}
+p{
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
 }
 
+.container-large{
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

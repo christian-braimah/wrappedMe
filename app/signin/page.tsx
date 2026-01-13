@@ -6,14 +6,11 @@ import { signIn } from "next-auth/react";
 
 import "../../public/css/login.css"
 
-import fetchAccessToken from "../../services/fetchAccessToken";
+
 import { useRouter } from 'next/navigation';
-
-
 export default function Login() {
     const router = useRouter();
 
-    fetchAccessToken();
     const { data: session } = useSession();
 
     if (session) {
