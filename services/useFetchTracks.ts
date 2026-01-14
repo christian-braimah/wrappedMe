@@ -1,9 +1,22 @@
 import { useSession } from "next-auth/react";
 import { useState, useEffect, useCallback } from "react";
 
+type SavedTrack = {
+    track: {
+        name: string;
+        album: {
+            images: { url: string }[];
+        };
+    };
+};
+
+type TracksResponse = {
+    items: SavedTrack[];
+};
+
 export function useFetchTracks() {
     const { data: session, status } = useSession();
-    const [tracks, setTracks] = useState([]);
+    const [tracks, setTracks] = useState<SavedTrack[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     // Spotify Tracks Endpoint
@@ -23,7 +36,7 @@ export function useFetchTracks() {
 
     if (!res.ok) throw new Error("Failed to fetch tracks");
 
-    const data = await res.json();
+    const data: TracksResponse = await res.json();
         setTracks(data.items || []); 
             return data;
     } 

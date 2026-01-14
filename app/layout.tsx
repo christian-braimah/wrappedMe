@@ -3,14 +3,10 @@ import type { Metadata } from "next";
 import { Zalando_Sans_Expanded, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "./AuthProvider";
-import Navigation from "../components/Navigation";
+import Navigation from "../layouts/Navigation";
 
-import { Theme } from "@radix-ui/themes";
-import "@radix-ui/themes/styles.css";
-import "./my-styles.css";
-import "@radix-ui/themes/layout/tokens.css";
-import "@radix-ui/themes/layout/components.css";
-import "@radix-ui/themes/layout/utilities.css";
+
+
 
 
 const zalandoSansExpanded = Zalando_Sans_Expanded({
@@ -37,13 +33,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${zalandoSansExpanded.variable} ${hankenGrotesk.variable} antialiased`}>
-        <Theme accentColor="blue">
           <AuthProvider>
             <Navigation>
                 {children}
             </Navigation>
           </AuthProvider>
-        </Theme>
       </body>
     </html>
   );

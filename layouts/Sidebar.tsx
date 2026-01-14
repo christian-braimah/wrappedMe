@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import "../public/css/sidebar.css"
 import Image from "next/image";
-import { Button } from "@radix-ui/themes";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+
 
 
 export default function Sidebar(){
@@ -29,9 +28,7 @@ export default function Sidebar(){
                 <div className="sidebar-bottom">
                     
                     {session?.user ?
-                    (<DropdownMenu.Root>
-                    <DropdownMenu.Trigger>
-                        <Button className="sidebar-item" variant="soft">
+                    ( <button className="sidebar-item" onClick={() => signOut()}>
                             <Image
                             className="rounded-full"
                             src={userImage || ""}
@@ -39,15 +36,10 @@ export default function Sidebar(){
                             width={20}
                             height={20}
                         />
-                            {userName}</Button>
-                        
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Content>
-                        <DropdownMenu.Item onClick={() => signOut()}>
-                            <Button>Sign Out</Button>
-                        </DropdownMenu.Item>
-                    </DropdownMenu.Content>
-                </DropdownMenu.Root>):
+                            {userName}
+                            </button>
+                    
+                ):
                     (<li className="sidebar-item cursor-pointer"
                         onClick={() => router.push("/signin")}>Sign In</li>)}
                 </div>

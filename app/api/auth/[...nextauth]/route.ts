@@ -53,7 +53,7 @@ const options: NextAuthOptions = {
                 params: {
                     // This is very important
                     // It specifies the kind of user data you can access
-                    scope: "user-read-email user-library-read playlist-read-private playlist-modify-private playlist-modify-public",
+                    scope: "user-read-email user-library-read user-top-read user-read-recently-played playlist-read-private playlist-modify-private playlist-modify-public",
                 },
             },
             clientId: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID || "",
